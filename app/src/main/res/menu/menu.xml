@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/colorItem"
+        android:title="Color"
+        android:icon="@drawable/ic_change_color"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/valueItem"
+        android:title="Value"
+        android:icon="@drawable/ic_change_value"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/aboutUsItem"
+        android:title="AboutUs"
+        android:icon="@drawable/ic_about_us"
+        app:showAsAction="ifRoom"/>
+</menu>

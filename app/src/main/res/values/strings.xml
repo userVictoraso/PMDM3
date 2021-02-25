@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Pareja_Ramirez_Victor_Datos</string>
+
+    <!--EJERCICIO 2 STRINGS-->
+    <string name="textViewTime">Tiempo: </string>
+    <string name="textViewDescription">Descripción: </string>
+    <string name="textViewSound">Sonido: </string>
+    <string name="buttonSave">Guardar</string>
+    <string name="buttonFinish">Finalizar</string>
+
+
+</resources>
