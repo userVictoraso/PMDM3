@@ -2,8 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.pareja_ramirez_victor_datos">
 
-    <uses-permission android:name="ANDROID.PERMISSION.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="ANDROID.PERMISSION.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="ANDROID.PERMISSION.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="ANDROID.PERMISSION.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -12,33 +12,32 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Pareja_Ramirez_Victor_Datos">
-
-        <!--MAIN-->
+        <activity android:name=".Ejercicio2.AlarmActivity.AlarmActivity"></activity>
+        <!-- MAIN -->
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <!--EJERCICIO 1-->
+        </activity> <!-- EJERCICIO 1 -->
         <activity android:name=".Ejercicio1.Opciones.ValueActivity" />
         <activity android:name=".Ejercicio1.Opciones.AboutActivity" />
         <activity android:name=".Ejercicio1.Opciones.ColorActivity" />
         <activity android:name=".Ejercicio1.MainActivity1">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <!--EJERCICIO 2-->
+        </activity> <!-- EJERCICIO 2 -->
         <activity android:name=".Ejercicio2.MainActivity2">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>

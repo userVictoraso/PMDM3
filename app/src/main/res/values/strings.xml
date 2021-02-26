@@ -6,6 +6,7 @@
     <string name="textViewDescription">Descripción: </string>
     <string name="textViewSound">Sonido: </string>
     <string name="buttonSave">Guardar</string>
+    <string name="buttonClean">Borrar</string>
     <string name="buttonFinish">Finalizar</string>
 
 
