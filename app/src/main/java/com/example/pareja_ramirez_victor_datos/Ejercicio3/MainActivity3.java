@@ -2,9 +2,11 @@ package com.example.pareja_ramirez_victor_datos.Ejercicio3;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 
+import com.example.pareja_ramirez_victor_datos.Ejercicio3.Clases.SQLite;
 import com.example.pareja_ramirez_victor_datos.databinding.ActivityMain3Binding;
 
 public class MainActivity3 extends AppCompatActivity {
@@ -15,6 +17,7 @@ public class MainActivity3 extends AppCompatActivity {
         binding = ActivityMain3Binding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
-
     }
+
+
 }

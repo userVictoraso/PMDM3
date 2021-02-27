@@ -9,6 +9,15 @@
     <string name="buttonClean">Borrar</string>
     <string name="buttonFinish">Finalizar</string>
     <string name="butttonBack">Volver</string>
+    <!-- EJERCICIO 3 STRINGS -->
+    <string name="textViewName">Nombre: </string>
+    <string name="textViewLink">Link: </string>
+    <string name="textViewEmail">Email: </string>
+    <string name="textViewCategory">Categoría: </string>
+    <string name="textViewImage">Imagen: </string>
+    <string name="textViewSelectImage">Seleccionar</string>
+
+
 
 
 </resources>
