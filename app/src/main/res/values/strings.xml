@@ -8,6 +8,7 @@
     <string name="buttonSave">Guardar</string>
     <string name="buttonClean">Borrar</string>
     <string name="buttonFinish">Finalizar</string>
+    <string name="butttonBack">Volver</string>
 
 
 </resources>

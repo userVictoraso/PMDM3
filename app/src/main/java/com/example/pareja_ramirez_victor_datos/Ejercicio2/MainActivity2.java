@@ -2,13 +2,17 @@ package com.example.pareja_ramirez_victor_datos.Ejercicio2;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.pareja_ramirez_victor_datos.Ejercicio1.MainActivity1;
+import com.example.pareja_ramirez_victor_datos.Ejercicio1.Opciones.ColorActivity;
 import com.example.pareja_ramirez_victor_datos.Ejercicio2.Alarm.Alarm;
+import com.example.pareja_ramirez_victor_datos.Ejercicio2.AlarmActivity.AlarmActivity;
 import com.example.pareja_ramirez_victor_datos.databinding.ActivityMain2Binding;
 
 import java.io.BufferedReader;
@@ -66,7 +70,7 @@ public class MainActivity2 extends AppCompatActivity {
                         e.printStackTrace();
                     }
                 } catch (NumberFormatException e) {
-                    Toast.makeText(getBaseContext(), "Time is not a number", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getBaseContext(), "El tiempo no es un número", Toast.LENGTH_SHORT).show();
                     return;
                 }
             }
@@ -79,6 +83,9 @@ public class MainActivity2 extends AppCompatActivity {
             public void onClick(View v) {
                 try {
                     cleanFile();
+                    alarmArrayList.clear();
+                    Toast.makeText(getBaseContext(), "Alarmas borradas",
+                            Toast.LENGTH_SHORT).show();
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
                 }
@@ -90,7 +97,8 @@ public class MainActivity2 extends AppCompatActivity {
         binding.finishButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                readFromFileAndAddToArrayList();
+                //readFromFileAndAddToArrayList();
+                startActivity(new Intent(MainActivity2.this, AlarmActivity.class));
             }
         });
     }
@@ -111,11 +119,10 @@ public class MainActivity2 extends AppCompatActivity {
             }
             FileOutputStream fOut = new FileOutputStream(getFile(), true);
             OutputStreamWriter outputWriter = new OutputStreamWriter(fOut);
-            //outputWriter.write(alarmData);
             outputWriter.append(alarmData);
             outputWriter.close();
 
-            Toast.makeText(getBaseContext(), "File saved successfully!",
+            Toast.makeText(getBaseContext(), "Alarma añadida",
                     Toast.LENGTH_SHORT).show();
         }catch (Exception e){
             e.printStackTrace();
@@ -154,9 +161,12 @@ public class MainActivity2 extends AppCompatActivity {
             reader = new BufferedReader(new FileReader(getFile()));
             String line = reader.readLine();
             while (line != null) {
-                String[] parts = line.split(";");
-                alarmArrayList.add(new Alarm(Integer.parseInt(parts[0]), parts[1], parts[2]));
-                line = reader.readLine();
+                if (line.isEmpty()) {} else {
+                    String[] parts = line.split(";");
+                    alarmArrayList.add(new Alarm(Integer.parseInt(parts[0]), parts[1], parts[2]));
+                    line = reader.readLine();
+                }
+
             }
         } catch (IOException e) {
             e.printStackTrace();
