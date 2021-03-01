@@ -12,7 +12,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Pareja_Ramirez_Victor_Datos">
-        <activity android:name=".Ejercicio3.Clases.CrearRegistroActivity"></activity>
         <!-- MAIN -->
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -30,7 +29,8 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity> <!-- EJERCICIO 2 -->
+        </activity>
+        <!-- EJERCICIO 2 -->
         <activity android:name=".Ejercicio2.AlarmActivity.AlarmActivity" />
         <activity android:name=".Ejercicio2.MainActivity2">
             <intent-filter>
@@ -38,8 +38,16 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity> <!-- EJERCICIO 3 -->
-        <activity android:name=".Ejercicio3.MainActivity3" />
+        </activity>
+        <!-- EJERCICIO 3 -->
+        <activity android:name=".Ejercicio3.Clases.CrearRegistroActivity" />
+        <activity android:name=".Ejercicio3.MainActivity3">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
