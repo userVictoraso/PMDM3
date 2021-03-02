@@ -31,13 +31,16 @@ public class CrearRegistroActivity extends AppCompatActivity {
         String link = binding.editTextLink.getText().toString();
         String email = binding.editTextEmail.getText().toString();
         String categoria = binding.editTextCategory.getText().toString();
+        String imagen = binding.editTextImage.getText().toString();
 
-        if(!nombre.isEmpty() && !link.isEmpty() && !email.isEmpty() && !categoria.isEmpty()){
+
+        if(!nombre.isEmpty() && !link.isEmpty() && !email.isEmpty() && !categoria.isEmpty() && !imagen.isEmpty()){
             ContentValues registro = new ContentValues();
             registro.put("nombre", nombre);
             registro.put("link", link);
             registro.put("email", email);
             registro.put("categoria", categoria);
+            registro.put("imagen", imagen);
 
             db.insert("web", null, registro);
             db.close();

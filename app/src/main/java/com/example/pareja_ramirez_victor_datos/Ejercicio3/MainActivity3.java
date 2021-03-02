@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
@@ -20,6 +21,8 @@ import com.example.pareja_ramirez_victor_datos.databinding.ActivityMain3Binding;
 import java.util.ArrayList;
 
 public class MainActivity3 extends AppCompatActivity {
+    ArrayList<Web> webArrayList = new ArrayList<>();
+
     ActivityMain3Binding binding;
     MyAdapter myAdapter;
     @Override
@@ -28,6 +31,13 @@ public class MainActivity3 extends AppCompatActivity {
         binding = ActivityMain3Binding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
+
+        binding.floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity3.this, CrearRegistroActivity.class));
+            }
+        });
 
         LinearLayoutManager llm = new LinearLayoutManager(this);
         llm.setOrientation(LinearLayoutManager.VERTICAL);
@@ -38,17 +48,28 @@ public class MainActivity3 extends AppCompatActivity {
     }
 
     private ArrayList<Web> getMyList(){
-        ArrayList<Web> webArrayList = new ArrayList<>();
+        //TODO: Cargar el arraylist con los registros de la BD.
+        SQLite admin = new SQLite(this, "myDataBase", null, 1);
+        SQLiteDatabase db = admin.getReadableDatabase();
+
         Web web;
 
         //CREAMOS LOS LIBROS
-        web = new Web("Google", "www.google.es", "google@gmail.com", "Buscador web", 1);
+        web = new Web("Google", "www.google.es", "google@gmail.com", "Buscador web", "http://l.yimg.com/a/i/us/we/52/21.gif");
         webArrayList.add(web);
-        web = new Web("Google", "www.google.es", "google@gmail.com", "Buscador web", 1);
+        web = new Web("Google", "www.google.es", "google@gmail.com", "Buscador web", "https://www.hola.com/imagenes/estar-bien/20201027177994/cosas-asustan-gatos-gt/0-882-234/gato-m.jpg");
         webArrayList.add(web);
-        web = new Web("Google", "www.google.es", "google@gmail.com", "Buscador web", 1);
+        web = new Web("Google", "www.google.es", "google@gmail.com", "Buscador web", "https://www.hola.com/imagenes/estar-bien/20201027177994/cosas-asustan-gatos-gt/0-882-234/gato-m.jpg");
         webArrayList.add(web);
-        web = new Web("Google", "www.google.es", "google@gmail.com", "Buscador web", 1);
+        web = new Web("Google", "www.google.es", "google@gmail.com", "Buscador web", "https://www.hola.com/imagenes/estar-bien/20201027177994/cosas-asustan-gatos-gt/0-882-234/gato-m.jpg");
+        webArrayList.add(web);
+        web = new Web("Google", "www.google.es", "google@gmail.com", "Buscador web", "https://www.hola.com/imagenes/estar-bien/20201027177994/cosas-asustan-gatos-gt/0-882-234/gato-m.jpg");
+        webArrayList.add(web);
+        web = new Web("Google", "www.google.es", "google@gmail.com", "Buscador web", "https://www.hola.com/imagenes/estar-bien/20201027177994/cosas-asustan-gatos-gt/0-882-234/gato-m.jpg");
+        webArrayList.add(web);
+        web = new Web("Google", "www.google.es", "google@gmail.com", "Buscador web", "https://www.hola.com/imagenes/estar-bien/20201027177994/cosas-asustan-gatos-gt/0-882-234/gato-m.jpg");
+        webArrayList.add(web);
+        web = new Web("Google", "www.google.es", "google@gmail.com", "Buscador web", "https://www.hola.com/imagenes/estar-bien/20201027177994/cosas-asustan-gatos-gt/0-882-234/gato-m.jpg");
         webArrayList.add(web);
 
         return webArrayList;

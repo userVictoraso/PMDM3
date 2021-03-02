@@ -5,9 +5,9 @@ public class Web {
     String link;
     String email;
     String categoria;
-    int imagen;
+    String imagen;
 
-    public Web(String nombre, String link, String email, String categoria, int imagen) {
+    public Web(String nombre, String link, String email, String categoria, String imagen) {
         this.nombre = nombre;
         this.link = link;
         this.email = email;
@@ -47,11 +47,11 @@ public class Web {
         this.categoria = categoria;
     }
 
-    public int getImagen() {
+    public String getImagen() {
         return imagen;
     }
 
-    public void setImagen(int imagen) {
+    public void setImagen(String imagen) {
         this.imagen = imagen;
     }
 }

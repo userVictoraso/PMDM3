@@ -21,7 +21,7 @@
             android:src="@mipmap/ic_launcher" />
 
         <TextView
-            android:id="@+id/tituloLibro"
+            android:id="@+id/nombreWeb"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -34,10 +34,10 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/autorLibro"
+            android:id="@+id/emailWeb"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tituloLibro"
+            android:layout_below="@id/nombreWeb"
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="5dp"

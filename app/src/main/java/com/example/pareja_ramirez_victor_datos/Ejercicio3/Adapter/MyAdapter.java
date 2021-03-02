@@ -1,6 +1,9 @@
 package com.example.pareja_ramirez_victor_datos.Ejercicio3.Adapter;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,9 +12,12 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.pareja_ramirez_victor_datos.Ejercicio3.Clases.AsyncTaskLoadImage;
 import com.example.pareja_ramirez_victor_datos.Ejercicio3.Clases.Web;
 import com.example.pareja_ramirez_victor_datos.R;
 
+import java.io.InputStream;
+import java.net.URL;
 import java.util.ArrayList;
 
 public class MyAdapter extends RecyclerView.Adapter<MyHolder> {
@@ -35,7 +41,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyHolder> {
     public void onBindViewHolder(@NonNull MyHolder holder, int i) {
         holder.titulo.setText(webs.get(i).getNombre());
         holder.autor.setText(webs.get(i).getLink());
-        //holder.cover.setImageResource(webs.get(i).getImg()); //Image usaging
+        new AsyncTaskLoadImage(holder.cover).execute(webs.get(i).getImagen());
+
 
         holder.setItemClickListener(new ItemClickListener() {
             public void onItemClickListener(View v, int position) {
@@ -48,6 +55,16 @@ public class MyAdapter extends RecyclerView.Adapter<MyHolder> {
             }
         });
 
+    }
+
+    public Bitmap LoadImageFromWebOperations(String url) {
+        try {
+            InputStream is = (InputStream) new URL(url).getContent();
+            Bitmap bitmap = BitmapFactory.decodeStream(is);
+            return bitmap;
+        } catch (Exception e) {
+            return null;
+        }
     }
 
     @Override

@@ -13,7 +13,7 @@ public class SQLite extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase webDB) {
-        webDB.execSQL("create table web(nombre text, link text, email text, categoria text, imagen longblob)");
+        webDB.execSQL("create table web(nombre text, link text, email text, categoria text, imagen text)");
     }
 
     @Override
