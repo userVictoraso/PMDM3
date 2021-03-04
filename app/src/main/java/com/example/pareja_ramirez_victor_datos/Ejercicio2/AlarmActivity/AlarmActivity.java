@@ -31,7 +31,9 @@ public class AlarmActivity extends AppCompatActivity {
         View view = binding.getRoot();
         setContentView(view);
         alarmArrayList = MainActivity2.getArrayList();
+        System.out.println("AQUI ESTA EL ARRAYLIST " + alarmArrayList);
         goBack();
+        startTimer(alarmArrayList.get(0).getTime(), alarmArrayList.get(0).getDesc(), alarmArrayList.get(0).getSound());
     }
 
     public void goBack(){

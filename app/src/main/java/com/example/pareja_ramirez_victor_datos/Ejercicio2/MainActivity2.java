@@ -48,14 +48,14 @@ public class MainActivity2 extends AppCompatActivity {
         startAlarmActivity();
     }
 
-    public void loadSpinner(){
+    public void loadSpinner() {
         String[] arraySpinner = new String[]{"coin", "menu", "shoot"};
         spinner = binding.spinner;
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, arraySpinner);
         spinner.setAdapter(adapter);
     }
 
-    public void saveAlarm(){
+    public void saveAlarm() {
         binding.saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -77,7 +77,7 @@ public class MainActivity2 extends AppCompatActivity {
         });
     }
 
-    public void cleanAlarms(){
+    public void cleanAlarms() {
         binding.cleanButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -93,75 +93,82 @@ public class MainActivity2 extends AppCompatActivity {
         });
     }
 
-    public void startAlarmActivity(){
+    public void startAlarmActivity() {
         binding.finishButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //readFromFileAndAddToArrayList();
+                readFromFileAndAddToArrayList();
                 startActivity(new Intent(MainActivity2.this, AlarmActivity.class));
             }
         });
     }
 
     public void writeFileOnInternalStorage(String alarmData) throws IOException {
-        if(!getFile().exists()){
+        if (!getFile().exists()) {
             try {
                 getFile().createNewFile();
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
-        try  {
-            if (countAlarm() >= alarmLimit){
+        try {
+            if (countAlarm() >= alarmLimit) {
                 Toast.makeText(getBaseContext(), "Ya hay " + countAlarm() + " alarmas",
                         Toast.LENGTH_SHORT).show();
                 return;
             }
             FileOutputStream fOut = new FileOutputStream(getFile(), true);
             OutputStreamWriter outputWriter = new OutputStreamWriter(fOut);
-            outputWriter.append(alarmData);
+            if (countAlarm() > 0) {
+                outputWriter.append(alarmData);
+            } else {
+                outputWriter.write(alarmData);
+            }
             outputWriter.close();
 
             Toast.makeText(getBaseContext(), "Alarma añadida",
                     Toast.LENGTH_SHORT).show();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public File getDirectory(){
+    public File getDirectory() {
         File directory = new File(this.getFilesDir() + File.separator + "/MyFolder");
-        if(!directory.exists())
+        if (!directory.exists())
             directory.mkdir();
         return directory;
     }
 
-    public File getFile(){
+    public File getFile() {
         File newFile = new File(getDirectory(), fileName);
         return newFile;
     }
 
     public void cleanFile() throws FileNotFoundException {
         PrintWriter writer = new PrintWriter(getFile());
-        writer.println("");
+        writer.print("");
         writer.close();
     }
 
     public int countAlarm() throws IOException {
         BufferedReader reader = new BufferedReader(new FileReader(getFile()));
         int lines = 0;
-        while (reader.readLine() != null) lines++;
+        while (reader.readLine() != null) {
+            lines++;
+        }
         reader.close();
         return lines;
     }
 
-    public void readFromFileAndAddToArrayList() throws NumberFormatException{
+    public void readFromFileAndAddToArrayList() throws NumberFormatException {
         BufferedReader reader;
         try {
             reader = new BufferedReader(new FileReader(getFile()));
             String line = reader.readLine();
             while (line != null) {
-                if (line.isEmpty()) {} else {
+                if (line.isEmpty()) {
+                } else {
                     String[] parts = line.split(";");
                     alarmArrayList.add(new Alarm(Integer.parseInt(parts[0]), parts[1], parts[2]));
                     line = reader.readLine();
@@ -173,7 +180,7 @@ public class MainActivity2 extends AppCompatActivity {
         }
     }
 
-    public static ArrayList getArrayList(){
+    public static ArrayList getArrayList() {
         return alarmArrayList;
     }
 }
