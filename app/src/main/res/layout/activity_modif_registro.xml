@@ -73,7 +73,7 @@
 
     <EditText
         android:id="@+id/editTextName"
-        android:layout_width="197dp"
+        android:layout_width="192dp"
         android:layout_height="36dp"
         android:ems="10"
         android:inputType="textPersonName"
@@ -99,8 +99,8 @@
 
     <EditText
         android:id="@+id/editTextEmail"
-        android:layout_width="196dp"
-        android:layout_height="39dp"
+        android:layout_width="197dp"
+        android:layout_height="37dp"
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -112,8 +112,8 @@
 
     <EditText
         android:id="@+id/editTextCategory"
-        android:layout_width="199dp"
-        android:layout_height="41dp"
+        android:layout_width="197dp"
+        android:layout_height="38dp"
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -126,22 +126,22 @@
     <EditText
         android:id="@+id/editTextImage"
         android:layout_width="194dp"
-        android:layout_height="38dp"
+        android:layout_height="36dp"
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.824"
+        app:layout_constraintHorizontal_bias="0.821"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.694" />
+        app:layout_constraintVertical_bias="0.686" />
 
     <Button
         android:id="@+id/buttonCreate"
-        android:layout_width="98dp"
-        android:layout_height="46dp"
+        android:layout_width="105dp"
+        android:layout_height="49dp"
         android:onClick="registrar"
-        android:text="@string/buttonCreate"
+        android:text="@string/buttonSave"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.25"
@@ -166,7 +166,7 @@
         android:id="@+id/textViewTitleMod"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/textViewTitleAdd"
+        android:text="@string/textViewTitleMod"
         android:textSize="30sp"
         android:textStyle="bold|italic"
         app:layout_constraintBottom_toTopOf="@+id/editTextName"

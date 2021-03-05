@@ -24,16 +24,16 @@ public class ColorActivity extends AppCompatActivity {
         setContentView(view);
         getSupportActionBar().setTitle("Color");
 
-        setRedBackground();
+        setYellowBackground();
         setBlueBackground();
         setGreenBackground();
     }
 
-    public void setRedBackground(){
+    public void setYellowBackground(){
         binding.redButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MainActivity1.changeAppBackground(Color.parseColor("#FF6A6A"));
+                MainActivity1.changeAppBackground(Color.parseColor("#FFFAE878"));
             }
         });
     }

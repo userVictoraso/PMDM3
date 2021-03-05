@@ -19,15 +19,20 @@ import com.example.pareja_ramirez_victor_datos.R;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<MyHolder> {
 
     Context c;
-    ArrayList<Web> webs;
+    List<Web> webs;
 
     public MyAdapter(Context c, ArrayList<Web> models) {
         this.c = c;
         this.webs = models;
+    }
+
+    public void setWebs(List<Web> webList) {
+        this.webs = webList;
     }
 
     @NonNull
@@ -55,16 +60,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyHolder> {
             }
         });
 
-    }
 
-    public Bitmap LoadImageFromWebOperations(String url) {
-        try {
-            InputStream is = (InputStream) new URL(url).getContent();
-            Bitmap bitmap = BitmapFactory.decodeStream(is);
-            return bitmap;
-        } catch (Exception e) {
-            return null;
-        }
     }
 
     @Override

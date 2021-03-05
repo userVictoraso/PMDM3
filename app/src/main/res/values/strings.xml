@@ -16,7 +16,10 @@
     <string name="textViewCategory">Categoría: </string>
     <string name="textViewImage">Imagen: </string>
     <string name="textViewSelectImage">Seleccionar</string>
-
+    <string name="textViewTitleAdd">Añadir una nueva web</string>
+    <string name="textViewTitleMod">Modificar una nueva web</string>
+    <string name="buttonCancel">Cancelar</string>
+    <string name="buttonCreate">Crear</string>
 
 
 
