@@ -1,5 +1,10 @@
 <resources>
     <string name="app_name">Pareja_Ramirez_Victor_Datos</string>
+    <!--MAIN ACTIVITY STRINGS-->
+    <string name="buttonActivityOne">Ejercicio 1</string>
+    <string name="buttonActivityTwo">Ejercicio 2</string>
+    <string name="buttonActivityThree">Ejercicio 3</string>
+    <string name="buttonActivityFour">Ejercicio 4</string>
 
     <!--EJERCICIO 2 STRINGS-->
     <string name="textViewTime">Tiempo: </string>
