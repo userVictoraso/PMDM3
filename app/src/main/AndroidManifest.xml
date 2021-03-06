@@ -13,42 +13,29 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Pareja_Ramirez_Victor_Datos" >
-        <activity android:name=".Ejercicio4.MainActivity4" >
-        </activity>
-        <activity android:name=".Ejercicio3.Clases.ModifRegistroActivity" /> <!-- MAIN -->
+        <activity android:name=".Ejercicio3.Clases.ModifRegistroActivity" />
+        <!-- MAIN -->
         <activity android:name=".MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity> <!-- EJERCICIO 1 -->
         <activity android:name=".Ejercicio1.Opciones.ValueActivity" />
         <activity android:name=".Ejercicio1.Opciones.AboutActivity" />
         <activity android:name=".Ejercicio1.Opciones.ColorActivity" />
-        <activity android:name=".Ejercicio1.MainActivity1" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity> <!-- EJERCICIO 2 -->
-        <activity android:name=".Ejercicio2.AlarmActivity.AlarmActivity" />
-        <activity android:name=".Ejercicio2.MainActivity2" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity> <!-- EJERCICIO 3 -->
-        <activity android:name=".Ejercicio3.Clases.CrearRegistroActivity" />
-        <activity android:name=".Ejercicio3.MainActivity3" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+        <activity android:name=".Ejercicio1.MainActivity1" android:parentActivityName=".MainActivity" android:exported="true">
         </activity>
+        <!-- EJERCICIO 2 -->
+        <activity android:name=".Ejercicio2.AlarmActivity.AlarmActivity" />
+        <activity android:name=".Ejercicio2.MainActivity2" android:parentActivityName=".MainActivity" android:exported="true">
+        </activity>
+        <!-- EJERCICIO 3 -->
+        <activity android:name=".Ejercicio3.Clases.CrearRegistroActivity" />
+        <activity android:name=".Ejercicio3.MainActivity3" android:parentActivityName=".MainActivity" android:exported="true">
+        </activity>
+        <!-- EJERCICIO 4 -->
+        <activity android:name=".Ejercicio4.MainActivity4" android:parentActivityName=".MainActivity" android:exported="true"/>
     </application>
 
 </manifest>
