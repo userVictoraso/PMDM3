@@ -52,15 +52,12 @@ public class MainActivity4 extends AppCompatActivity implements LoaderManager.Lo
             return new CursorLoader(this, CONTENT_URI, null, null, null, null);
         }
         return null;
-
     }
 
     public void onLoadFinished(Loader<Cursor> loader, Cursor cursor) {
-
         ArrayList<Web> list = new ArrayList<>();
 
         while (cursor.moveToNext()) {
-
             String name = cursor.getString(0);
             String link = cursor.getString(1);
             String email = cursor.getString(2);
@@ -73,10 +70,6 @@ public class MainActivity4 extends AppCompatActivity implements LoaderManager.Lo
 
         myAdapter = new MyAdapter(this, list);
         rv_list.setAdapter(myAdapter);
-
-
     }
-    public void onLoaderReset(Loader<Cursor> loader) {
-
-    }
+    public void onLoaderReset(Loader<Cursor> loader) {}
 }

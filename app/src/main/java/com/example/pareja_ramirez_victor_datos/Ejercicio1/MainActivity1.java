@@ -38,8 +38,7 @@ public class MainActivity1 extends AppCompatActivity {
         setContentView(view);
 
         //TODO: QUITAR LA SUBTOOLBAR
-        //setSupportActionBar(null);
-        getSupportActionBar().setTitle("Datos");
+        getSupportActionBar().setTitle("Conversor");
 
 
         binding.switchMoneda.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {

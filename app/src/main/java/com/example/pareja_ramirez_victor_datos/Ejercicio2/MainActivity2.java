@@ -36,7 +36,6 @@ public class MainActivity2 extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        //TODO: DARLE ESPACIO ENTRE LOS BOTONES
         super.onCreate(savedInstanceState);
         binding = ActivityMain2Binding.inflate(getLayoutInflater());
         View view = binding.getRoot();
