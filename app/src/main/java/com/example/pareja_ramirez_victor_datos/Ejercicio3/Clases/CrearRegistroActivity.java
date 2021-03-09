@@ -3,6 +3,7 @@ package com.example.pareja_ramirez_victor_datos.Ejercicio3.Clases;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
+import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -58,12 +59,17 @@ public class CrearRegistroActivity extends AppCompatActivity {
         }
     }
 
-    public void eliminar(Web web) {
-        SQLite admin = new SQLite(this, "myDataBase", null, 1);
-        SQLiteDatabase db = admin.getWritableDatabase();
-        int cantidad = db.delete("web", "nombre=" + "'" + web.getNombre() + "'", null);
-        db.close();
-        Toast.makeText(this, "Web borrada", Toast.LENGTH_SHORT).show();
+    public void eliminar(Web web, Context context) {
+        try {
+            SQLite admin = new SQLite(context, "myDataBase", null, 1);
+            SQLiteDatabase db = admin.getWritableDatabase();
+            int cantidad = db.delete("web", "nombre=" + "'" + web.getNombre() + "'", null);
+            db.close();
+            Toast.makeText(this, "Web borrada", Toast.LENGTH_SHORT).show();
+        } catch (NullPointerException e){
+
+        }
+
     }
 
     public void limpiarCampos() {

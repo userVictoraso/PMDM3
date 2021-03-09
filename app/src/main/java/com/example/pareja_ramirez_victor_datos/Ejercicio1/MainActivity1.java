@@ -37,7 +37,6 @@ public class MainActivity1 extends AppCompatActivity {
         View view = binding.getRoot();
         setContentView(view);
 
-        Toolbar toolbar = (Toolbar) binding.toolbar.toolbar;
         //TODO: QUITAR LA SUBTOOLBAR
         //setSupportActionBar(null);
         getSupportActionBar().setTitle("Datos");

@@ -75,8 +75,7 @@ public class MainActivity3 extends AppCompatActivity {
                         .setPositiveButton("Eliminar", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                //TODO: PODER BORRAR UN REGISTRO
-                                crearRegistroActivity.eliminar(web);
+                                crearRegistroActivity.eliminar(web, getBaseContext());
                                 refreshList();
                             }
                         })
