@@ -8,6 +8,7 @@ import android.os.CountDownTimer;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.pareja_ramirez_victor_datos.Ejercicio2.Alarm.Alarm;
 import com.example.pareja_ramirez_victor_datos.Ejercicio2.MainActivity2;
@@ -15,14 +16,12 @@ import com.example.pareja_ramirez_victor_datos.R;
 import com.example.pareja_ramirez_victor_datos.databinding.ActivityAlarmBinding;
 
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
 
 public class AlarmActivity extends AppCompatActivity {
     ArrayList<Alarm> alarmArrayList;
     ActivityAlarmBinding binding;
-
-    private CountDownTimer timer;
-    private long remainTime = 0;
-    private boolean currentTime;
+    final String endAlarm = "0 min, 0 sec";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,12 +30,29 @@ public class AlarmActivity extends AppCompatActivity {
         View view = binding.getRoot();
         setContentView(view);
         alarmArrayList = MainActivity2.getArrayList();
-        System.out.println("AQUI ESTA EL ARRAYLIST " + alarmArrayList);
         goBack();
-        startTimer(alarmArrayList.get(0).getTime(), alarmArrayList.get(0).getDesc(), alarmArrayList.get(0).getSound());
+
+        for (Alarm alarm : alarmArrayList) {
+            //TODO: QUE NO SE SUPERPONGAN LAS ALARMAS, ESPERAR A QUE TERMINE LA ANTERIOR
+            long time = alarm.getTime() * 60000;
+            binding.editTextDescription.setText(alarm.getDesc());
+            new CountDownTimer(time, 1000) {
+                public void onTick(long millisUntilFinished) {
+                    binding.editTextTime.setText("" + String.format("%d min, %d sec",
+                            TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished),
+                            TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished) -
+                                    TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished))));
+                }
+                public void onFinish() {
+                    Toast.makeText(getBaseContext(), "Alarma finalizada",
+                            Toast.LENGTH_SHORT).show();
+                    //TODO: HACER QUE SUENE, QUE COJA BIEN EL ARCHIVO MP3
+                }
+            }.start();
+        }
     }
 
-    public void goBack(){
+    public void goBack() {
         binding.buttonBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -44,67 +60,4 @@ public class AlarmActivity extends AppCompatActivity {
             }
         });
     }
-
-    public void startTimer(int time, String description, String sound) {
-        setAlarmTime(time);
-        binding.editTextDescription.setText(description);
-        timer = new CountDownTimer(getRemainTime(), 1000) {
-            @Override
-            public void onTick(long millisUntilFinished) {
-                remainTime = millisUntilFinished;
-                actualizarTemporizador();
-            }
-
-            @Override
-            public void onFinish() {
-                //MediaPlayer mp = MediaPlayer.create(this, R.raw.menu);
-            }
-        };
-    }
-
-    public void setAlarmTime(int time) {
-        remainTime = time * 60000;
-    }
-
-    public long getRemainTime() {
-        return remainTime;
-    }
-
-    public String getSound(String sound) {
-        return "R.raw." + sound;
-    }
-
-    public void actualizarTemporizador() {
-        int min = (int) remainTime / 60000;
-        int sec = (int) remainTime % 60000 / 1000;
-        String remainTimeString;
-        remainTimeString = "" + min;
-        remainTimeString += ":";
-        if (sec < 10) remainTimeString += "0";
-        remainTimeString += sec;
-
-        if (remainTimeString.equals("0:00")) {
-            binding.editTextTime.setText("");
-        } else {
-            binding.editTextTime.setText(remainTimeString);
-        }
-        binding.editTextTime.addTextChangedListener(comprobar);
-    }
-
-    private TextWatcher comprobar = new TextWatcher() {
-        @Override
-        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-        }
-
-        @Override
-        public void onTextChanged(CharSequence s, int start, int before, int count) {
-        }
-
-        @Override
-        public void afterTextChanged(Editable s) {
-            String time = binding.editTextTime.getText().toString().trim();
-        }
-    };
-
-
 }

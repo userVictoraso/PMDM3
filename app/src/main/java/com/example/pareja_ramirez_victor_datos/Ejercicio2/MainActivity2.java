@@ -36,6 +36,7 @@ public class MainActivity2 extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //TODO: DARLE ESPACIO ENTRE LOS BOTONES
         super.onCreate(savedInstanceState);
         binding = ActivityMain2Binding.inflate(getLayoutInflater());
         View view = binding.getRoot();
@@ -97,8 +98,18 @@ public class MainActivity2 extends AppCompatActivity {
         binding.finishButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                readFromFileAndAddToArrayList();
-                startActivity(new Intent(MainActivity2.this, AlarmActivity.class));
+                try {
+                    if (countAlarm() != 0) {
+                        readFromFileAndAddToArrayList();
+                        startActivity(new Intent(MainActivity2.this, AlarmActivity.class));
+                    } else {
+                        Toast.makeText(getBaseContext(), "Aún no hay alarmas.",
+                                Toast.LENGTH_SHORT).show();
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
             }
         });
     }
