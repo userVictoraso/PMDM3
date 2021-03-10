@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.loader.app.LoaderManager;
 import androidx.loader.content.CursorLoader;
 import androidx.loader.content.Loader;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.UriMatcher;
@@ -19,12 +20,13 @@ import com.example.pareja_ramirez_victor_datos.databinding.ActivityMain4Binding;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity4 extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor>{
+public class MainActivity4 extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
     ActivityMain4Binding binding;
     MyAdapter myAdapter;
     RecyclerView rv_list;
+    ArrayList<Web> list = new ArrayList<>();
 
-    private static final String AUTHORITY = "com.example.pareja_ramirez_victor_datos.Ejercicio3";
+    private static final String AUTHORITY = "com.example.pareja_ramirez_victor_datos.Ejercicio4";
     private static final String BASE_PATH = "web";
     public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/" + BASE_PATH);
     private static final int CONTACTS = 1;
@@ -44,6 +46,13 @@ public class MainActivity4 extends AppCompatActivity implements LoaderManager.Lo
         binding = ActivityMain4Binding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
+        getSupportActionBar().setTitle("Content Provider");
+
+        LinearLayoutManager llm = new LinearLayoutManager(this);
+        llm.setOrientation(LinearLayoutManager.VERTICAL);
+        binding.recyclerView.setLayoutManager(llm);
+        myAdapter = new MyAdapter(this, getWebs());
+        binding.recyclerView.setAdapter(myAdapter);
         //TODO: que cargue el adapter
     }
 
@@ -55,8 +64,6 @@ public class MainActivity4 extends AppCompatActivity implements LoaderManager.Lo
     }
 
     public void onLoadFinished(Loader<Cursor> loader, Cursor cursor) {
-        ArrayList<Web> list = new ArrayList<>();
-
         while (cursor.moveToNext()) {
             String name = cursor.getString(0);
             String link = cursor.getString(1);
@@ -66,10 +73,17 @@ public class MainActivity4 extends AppCompatActivity implements LoaderManager.Lo
 
             Web web = new Web(name, link, email, category, image);
             list.add(web);
+            list.add(new Web("a","a","a","a","a"));
         }
 
         myAdapter = new MyAdapter(this, list);
         rv_list.setAdapter(myAdapter);
     }
-    public void onLoaderReset(Loader<Cursor> loader) {}
+
+    public void onLoaderReset(Loader<Cursor> loader) {
+    }
+
+    private ArrayList<Web> getWebs() {
+        return list;
+    }
 }

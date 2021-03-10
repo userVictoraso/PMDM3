@@ -34,6 +34,8 @@ public class MainActivity3 extends AppCompatActivity {
         binding = ActivityMain3Binding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
+        getSupportActionBar().setTitle("SQLite");
+
         refreshList();
         binding.floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override

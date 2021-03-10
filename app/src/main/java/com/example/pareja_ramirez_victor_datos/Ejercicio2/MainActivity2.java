@@ -40,6 +40,8 @@ public class MainActivity2 extends AppCompatActivity {
         binding = ActivityMain2Binding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
+        getSupportActionBar().setTitle("Alarmas");
+
         loadSpinner();
 
         /**BUTTONS**/
