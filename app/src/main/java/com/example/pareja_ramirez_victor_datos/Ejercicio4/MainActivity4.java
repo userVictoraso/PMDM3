@@ -26,7 +26,7 @@ public class MainActivity4 extends AppCompatActivity implements LoaderManager.Lo
     RecyclerView rv_list;
     ArrayList<Web> list = new ArrayList<>();
 
-    private static final String AUTHORITY = "com.example.pareja_ramirez_victor_datos.Ejercicio4";
+    private static final String AUTHORITY = "com.example.pareja_ramirez_victor_datos.Ejercicio3.Clases";
     private static final String BASE_PATH = "web";
     public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/" + BASE_PATH);
     private static final int CONTACTS = 1;

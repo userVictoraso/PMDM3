@@ -16,7 +16,6 @@ import com.example.pareja_ramirez_victor_datos.databinding.ActivityMain3Binding;
 
 public class CrearRegistroActivity extends AppCompatActivity {
     ActivityCrearRegistroBinding binding;
-    MainActivity3 mainActivity3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
