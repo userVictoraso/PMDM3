@@ -22,6 +22,7 @@ public class AlarmActivity extends AppCompatActivity {
     ArrayList<Alarm> alarmArrayList;
     ActivityAlarmBinding binding;
     final String endAlarm = "0 min, 0 sec";
+    int countAlarms = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,24 +33,34 @@ public class AlarmActivity extends AppCompatActivity {
         alarmArrayList = MainActivity2.getArrayList();
         goBack();
 
-        for (Alarm alarm : alarmArrayList) {
-            //TODO: QUE NO SE SUPERPONGAN LAS ALARMAS, ESPERAR A QUE TERMINE LA ANTERIOR
-            long time = alarm.getTime() * 60000;
-            binding.editTextDescription.setText(alarm.getDesc());
-            new CountDownTimer(time, 1000) {
-                public void onTick(long millisUntilFinished) {
-                    binding.editTextTime.setText("" + String.format("%d min, %d sec",
-                            TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished),
-                            TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished) -
-                                    TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished))));
-                }
-                public void onFinish() {
-                    Toast.makeText(getBaseContext(), "Alarma finalizada",
-                            Toast.LENGTH_SHORT).show();
-                    //TODO: HACER QUE SUENE, QUE COJA BIEN EL ARCHIVO MP3
-                }
-            }.start();
+        if(!getAlarmArrayList().isEmpty()){
+            executeAlarm();
         }
+    }
+
+    public void executeAlarm() {
+        Alarm currentAlarm = getAlarmArrayList().get(getCountAlarms());
+        long time = currentAlarm.getTime() * 60000;
+        binding.editTextDescription.setText(currentAlarm.getDesc());
+
+        new CountDownTimer(time, 1000) {
+            public void onTick(long millisUntilFinished) {
+                binding.editTextTime.setText("" + String.format("%d min, %d sec",
+                        TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished),
+                        TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished) -
+                                TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished))));
+            }
+
+            public void onFinish() {
+                Toast.makeText(getBaseContext(), "Alarma finalizada",
+                        Toast.LENGTH_SHORT).show();
+                setCountAlarms(getCountAlarms() + 1);
+                if (getCountAlarms() < getAlarmArrayList().size()) {
+                    executeAlarm();
+                }
+                //TODO: HACER QUE SUENE, QUE COJA BIEN EL ARCHIVO MP3
+            }
+        }.start();
     }
 
     public void goBack() {
@@ -59,5 +70,17 @@ public class AlarmActivity extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    public ArrayList<Alarm> getAlarmArrayList() {
+        return alarmArrayList;
+    }
+
+    public int getCountAlarms() {
+        return countAlarms;
+    }
+
+    public void setCountAlarms(int countAlarms) {
+        this.countAlarms = countAlarms;
     }
 }
