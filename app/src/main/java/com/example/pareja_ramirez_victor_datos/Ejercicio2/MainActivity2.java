@@ -65,7 +65,7 @@ public class MainActivity2 extends AppCompatActivity {
                 try {
                     int isNumber = Integer.parseInt(alarmData[0]);
                     alarmData[1] = binding.editTextDescripcion.getText().toString();
-                    alarm = alarmData[0] + "; " + alarmData[1] + "; " + binding.spinner.getSelectedItem().toString() + "\n";
+                    alarm = alarmData[0] + "; " + alarmData[1] + ";" + binding.spinner.getSelectedItem().toString() + "\n";
                     try {
                         writeFileOnInternalStorage(alarm);
                     } catch (IOException e) {

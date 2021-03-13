@@ -3,6 +3,7 @@ package com.example.pareja_ramirez_victor_datos.Ejercicio2.AlarmActivity;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.text.Editable;
@@ -54,6 +55,15 @@ public class AlarmActivity extends AppCompatActivity {
             public void onFinish() {
                 Toast.makeText(getBaseContext(), "Alarma finalizada",
                         Toast.LENGTH_SHORT).show();
+                String soundName = getAlarmArrayList().get(getCountAlarms()).getSound();
+                Uri uri = Uri.parse("android.resource://com.example.pareja_ramirez_victor_datos/raw/" + soundName);
+
+                MediaPlayer mp = MediaPlayer.create(getApplicationContext(), uri);
+                try {
+                    mp.start();
+                } catch (Exception e){
+
+                }
                 setCountAlarms(getCountAlarms() + 1);
                 if (getCountAlarms() < getAlarmArrayList().size()) {
                     executeAlarm();
