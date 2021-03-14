@@ -24,6 +24,7 @@ public class AlarmActivity extends AppCompatActivity {
     ActivityAlarmBinding binding;
     final String endAlarm = "0 min, 0 sec";
     int countAlarms = 0;
+    int remainsAlarms;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +32,9 @@ public class AlarmActivity extends AppCompatActivity {
         binding = com.example.pareja_ramirez_victor_datos.databinding.ActivityAlarmBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
+        getSupportActionBar().setTitle("Alarmas");
         alarmArrayList = MainActivity2.getArrayList();
+        remainsAlarms = getAlarmArrayList().size();
         goBack();
 
         if(!getAlarmArrayList().isEmpty()){
@@ -43,6 +46,7 @@ public class AlarmActivity extends AppCompatActivity {
         Alarm currentAlarm = getAlarmArrayList().get(getCountAlarms());
         long time = currentAlarm.getTime() * 60000;
         binding.editTextDescription.setText(currentAlarm.getDesc());
+        binding.textViewNumberOfRemainAlarms.setText(String.valueOf(remainsAlarms));
 
         new CountDownTimer(time, 1000) {
             public void onTick(long millisUntilFinished) {
@@ -59,16 +63,15 @@ public class AlarmActivity extends AppCompatActivity {
                 Uri uri = Uri.parse("android.resource://com.example.pareja_ramirez_victor_datos/raw/" + soundName);
 
                 MediaPlayer mp = MediaPlayer.create(getApplicationContext(), uri);
-                try {
                     mp.start();
-                } catch (Exception e){
-
-                }
                 setCountAlarms(getCountAlarms() + 1);
+                remainsAlarms = remainsAlarms - 1;
+                if (remainsAlarms == 1) {
+                    remainsAlarms = 0;
+                }
                 if (getCountAlarms() < getAlarmArrayList().size()) {
                     executeAlarm();
                 }
-                //TODO: HACER QUE SUENE, QUE COJA BIEN EL ARCHIVO MP3
             }
         }.start();
     }
@@ -93,4 +96,6 @@ public class AlarmActivity extends AppCompatActivity {
     public void setCountAlarms(int countAlarms) {
         this.countAlarms = countAlarms;
     }
+
+
 }

@@ -1,20 +1,15 @@
 package com.example.pareja_ramirez_victor_datos.Ejercicio2;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
-
-import com.example.pareja_ramirez_victor_datos.Ejercicio1.MainActivity1;
-import com.example.pareja_ramirez_victor_datos.Ejercicio1.Opciones.ColorActivity;
 import com.example.pareja_ramirez_victor_datos.Ejercicio2.Alarm.Alarm;
 import com.example.pareja_ramirez_victor_datos.Ejercicio2.AlarmActivity.AlarmActivity;
 import com.example.pareja_ramirez_victor_datos.databinding.ActivityMain2Binding;
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -27,7 +22,7 @@ import java.util.ArrayList;
 
 public class MainActivity2 extends AppCompatActivity {
     final String fileName = "tiempo.txt";
-    final int alarmLimit = 6;
+    final int alarmLimit = 5;
     ActivityMain2Binding binding;
     static ArrayList<Alarm> alarmArrayList = new ArrayList<>();
     Spinner spinner;
@@ -195,4 +190,5 @@ public class MainActivity2 extends AppCompatActivity {
     public static ArrayList getArrayList() {
         return alarmArrayList;
     }
+
 }

@@ -14,6 +14,10 @@
     <string name="buttonClean">Borrar</string>
     <string name="buttonFinish">Finalizar</string>
     <string name="butttonBack">Volver</string>
+    <string name="textViewRemainAlarms">Alarmas restantes: </string>
+    <string name="textViewSetFileName">Nombre del archivo: </string>
+    <string name="textViewSetSound">Sonido activado:  </string>
+
     <!-- EJERCICIO 3 STRINGS -->
     <string name="textViewName">Nombre: </string>
     <string name="textViewLink">Link: </string>
@@ -25,7 +29,6 @@
     <string name="textViewTitleMod">Modificar una nueva web</string>
     <string name="buttonCancel">Cancelar</string>
     <string name="buttonCreate">Crear</string>
-
 
 
 </resources>
