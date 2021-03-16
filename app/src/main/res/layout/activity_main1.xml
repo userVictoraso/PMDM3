@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Ejercicio1.MainActivity1"
-    android:background="@color/white">
+    android:background="@color/purple_500"
+    tools:context=".Ejercicio1.MainActivity1">
 
     <EditText
         android:id="@+id/editTextEuro"
@@ -78,8 +78,8 @@
 
     <TextView
         android:id="@+id/textViewTitulo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="182dp"
+        android:layout_height="48dp"
         android:text="Conversor"
         android:textColor="@color/black"
         android:textSize="36sp"

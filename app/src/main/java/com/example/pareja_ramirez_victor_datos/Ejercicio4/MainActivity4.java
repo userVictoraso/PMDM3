@@ -12,6 +12,7 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 
 import com.example.pareja_ramirez_victor_datos.Ejercicio3.Clases.Web;
 import com.example.pareja_ramirez_victor_datos.Ejercicio4.Adapter.MyAdapter;
@@ -31,7 +32,6 @@ public class MainActivity4 extends AppCompatActivity implements LoaderManager.Lo
     public static final Uri CONTENT_URI = Uri.parse("content://" + AUTHORITY + "/" + BASE_PATH);
     private static final int CONTACTS = 1;
     private static final int CONTACT_ID = 2;
-    private boolean firstTimeLoaded = false;
 
     private static final UriMatcher uriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
 
@@ -50,12 +50,14 @@ public class MainActivity4 extends AppCompatActivity implements LoaderManager.Lo
 
         LinearLayoutManager llm = new LinearLayoutManager(this);
         llm.setOrientation(LinearLayoutManager.VERTICAL);
+        getSupportLoaderManager().initLoader(0, null, this);
         binding.recyclerView.setLayoutManager(llm);
         myAdapter = new MyAdapter(this, getWebs());
         binding.recyclerView.setAdapter(myAdapter);
         //TODO: que cargue el adapter
     }
 
+    @Override
     public Loader<Cursor> onCreateLoader(int id, Bundle bundle) {
         if (id == 0) {
             return new CursorLoader(this, CONTENT_URI, null, null, null, null);
@@ -63,6 +65,7 @@ public class MainActivity4 extends AppCompatActivity implements LoaderManager.Lo
         return null;
     }
 
+    @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor cursor) {
         while (cursor.moveToNext()) {
             String name = cursor.getString(0);
@@ -73,13 +76,12 @@ public class MainActivity4 extends AppCompatActivity implements LoaderManager.Lo
 
             Web web = new Web(name, link, email, category, image);
             list.add(web);
-            list.add(new Web("a","a","a","a","a"));
         }
-
-        myAdapter = new MyAdapter(this, list);
-        rv_list.setAdapter(myAdapter);
+        myAdapter.setWebs(list);
+        myAdapter.notifyDataSetChanged();
     }
 
+    @Override
     public void onLoaderReset(Loader<Cursor> loader) {
     }
 

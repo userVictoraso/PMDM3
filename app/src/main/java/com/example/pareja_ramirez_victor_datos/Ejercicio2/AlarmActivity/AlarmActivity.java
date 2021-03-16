@@ -29,10 +29,11 @@ public class AlarmActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = com.example.pareja_ramirez_victor_datos.databinding.ActivityAlarmBinding.inflate(getLayoutInflater());
+        binding = ActivityAlarmBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
         getSupportActionBar().setTitle("Alarmas");
+        //Llamo al getArrayList, cargado después de haber leido el archivo
         alarmArrayList = MainActivity2.getArrayList();
         remainsAlarms = getAlarmArrayList().size();
         goBack();
@@ -46,7 +47,7 @@ public class AlarmActivity extends AppCompatActivity {
         Alarm currentAlarm = getAlarmArrayList().get(getCountAlarms());
         long time = currentAlarm.getTime() * 60000;
         binding.editTextDescription.setText(currentAlarm.getDesc());
-        binding.textViewNumberOfRemainAlarms.setText(String.valueOf(remainsAlarms));
+        binding.textViewNumberOfRemainAlarms.setText(String.valueOf(remainsAlarms - 1));
 
         new CountDownTimer(time, 1000) {
             public void onTick(long millisUntilFinished) {
@@ -66,9 +67,6 @@ public class AlarmActivity extends AppCompatActivity {
                     mp.start();
                 setCountAlarms(getCountAlarms() + 1);
                 remainsAlarms = remainsAlarms - 1;
-                if (remainsAlarms == 1) {
-                    remainsAlarms = 0;
-                }
                 if (getCountAlarms() < getAlarmArrayList().size()) {
                     executeAlarm();
                 }

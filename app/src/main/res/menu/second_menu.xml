@@ -2,8 +2,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/valueItem"
-        android:title="Value"
+        android:id="@+id/ajustesItem"
+        android:title="Ajustes"
         android:icon="@drawable/ic_change_value"
         app:showAsAction="ifRoom"/>
 </menu>

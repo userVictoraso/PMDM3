@@ -65,9 +65,7 @@ public class CrearRegistroActivity extends AppCompatActivity {
             int cantidad = db.delete("web", "nombre=" + "'" + web.getNombre() + "'", null);
             db.close();
             Toast.makeText(this, "Web borrada", Toast.LENGTH_SHORT).show();
-        } catch (NullPointerException e){
-
-        }
+        } catch (NullPointerException e){}
 
     }
 

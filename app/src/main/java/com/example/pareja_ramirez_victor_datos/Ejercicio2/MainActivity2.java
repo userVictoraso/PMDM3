@@ -1,14 +1,24 @@
 package com.example.pareja_ramirez_victor_datos.Ejercicio2;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import com.example.pareja_ramirez_victor_datos.Ejercicio1.MainActivity1;
+import com.example.pareja_ramirez_victor_datos.Ejercicio1.Opciones.AboutActivity;
+import com.example.pareja_ramirez_victor_datos.Ejercicio1.Opciones.ColorActivity;
+import com.example.pareja_ramirez_victor_datos.Ejercicio1.Opciones.ValueActivity;
 import com.example.pareja_ramirez_victor_datos.Ejercicio2.Alarm.Alarm;
 import com.example.pareja_ramirez_victor_datos.Ejercicio2.AlarmActivity.AlarmActivity;
+import com.example.pareja_ramirez_victor_datos.Ejercicio2.AlarmActivity.SettingsActivity;
+import com.example.pareja_ramirez_victor_datos.R;
 import com.example.pareja_ramirez_victor_datos.databinding.ActivityMain2Binding;
 import java.io.BufferedReader;
 import java.io.File;
@@ -168,6 +178,8 @@ public class MainActivity2 extends AppCompatActivity {
         return lines;
     }
 
+    //Leo el fichero, añado al arrayList de alarmas y llamo a este metodo antes de iniciar la actividad de las alarmas
+    //En la actividad de las alarmas llamo al método getArrayList, que se llena con readFromFileAndAddToArrayList
     public void readFromFileAndAddToArrayList() throws NumberFormatException {
         BufferedReader reader;
         try {
@@ -191,4 +203,23 @@ public class MainActivity2 extends AppCompatActivity {
         return alarmArrayList;
     }
 
+    /*MENÚ*/
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.second_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.ajustesItem:
+                Toast.makeText(this, "Ajustes", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(this, SettingsActivity.class));
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+
+    }
 }

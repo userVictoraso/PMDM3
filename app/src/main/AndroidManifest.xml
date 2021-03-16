@@ -2,11 +2,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.pareja_ramirez_victor_datos">
 
-    <uses-permission android:name="com.example.pareja_ramirez_victor_datos.Ejercicio3.READ_DATABASE" />
-    <uses-permission android:name="com.example.pareja_ramirez_victor_datos.Ejercicio3.WRITE_DATABASE" />
+    <permission android:name="com.example.pareja_ramirez_victor_datos.Ejercicio3.Clases.READ_DATABASE" android:protectionLevel="normal"/>
+    <permission android:name="com.example.pareja_ramirez_victor_datos.Ejercicio3.Clases.WRITE_DATABASE" android:protectionLevel="normal"/>
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="ANDROID.PERMISSION.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="ANDROID.PERMISSION.WRITE_EXTERNAL_STORAGE" />
+
+
 
     <application
         android:allowBackup="true"
@@ -15,7 +17,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Pareja_Ramirez_Victor_Datos">
-        <activity android:name=".Ejercicio2.Options.SettingActivity"></activity>
+        <activity android:name=".Ejercicio2.AlarmActivity.SettingsActivity" />
         <activity android:name=".Ejercicio3.Clases.ModifRegistroActivity" /> <!-- MAIN -->
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -30,21 +32,27 @@
         <activity
             android:name=".Ejercicio1.MainActivity1"
             android:exported="true"
-            android:parentActivityName=".MainActivity"></activity> <!-- EJERCICIO 2 -->
+            android:parentActivityName=".MainActivity" /> <!-- EJERCICIO 2 -->
         <activity android:name=".Ejercicio2.AlarmActivity.AlarmActivity" />
         <activity
             android:name=".Ejercicio2.MainActivity2"
             android:exported="true"
-            android:parentActivityName=".MainActivity"></activity> <!-- EJERCICIO 3 -->
+            android:parentActivityName=".MainActivity" /> <!-- EJERCICIO 3 -->
         <activity android:name=".Ejercicio3.Clases.CrearRegistroActivity" />
         <activity
             android:name=".Ejercicio3.MainActivity3"
             android:exported="true"
-            android:parentActivityName=".MainActivity"></activity> <!-- EJERCICIO 4 -->
+            android:parentActivityName=".MainActivity" /> <!-- EJERCICIO 4 -->
         <activity
             android:name=".Ejercicio4.MainActivity4"
             android:exported="true"
             android:parentActivityName=".MainActivity" />
+        <provider
+            android:name="com.example.pareja_ramirez_victor_datos.Ejercicio3.Clases.WebCP"
+            android:authorities="com.example.pareja_ramirez_victor_datos.Ejercicio3.Clases"
+            android:exported="true"
+            android:readPermission ="com.example.pareja_ramirez_victor_datos.Ejercicio3.Clases.READ_DATABASE"
+            android:writePermission="com.example.pareja_ramirez_victor_datos.Ejercicio3.Clases.WRITE_DATABASE" />
     </application>
 
 </manifest>

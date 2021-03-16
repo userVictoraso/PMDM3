@@ -5,7 +5,7 @@
         android:title="@string/textViewSetSound"
         android:defaultValue="true"/>
     <EditTextPreference
-        android:key="@string/textViewSetFileName"
+        android:key="pref_file_name"
         android:defaultValue="tiempo"
         android:title="@string/textViewSetFileName"
         />

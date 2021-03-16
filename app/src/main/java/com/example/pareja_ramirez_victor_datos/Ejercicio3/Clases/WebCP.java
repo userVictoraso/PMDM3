@@ -9,7 +9,9 @@ import android.net.Uri;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-public class ContentProvider extends android.content.ContentProvider {
+import com.example.pareja_ramirez_victor_datos.Ejercicio3.Clases.SQLite;
+
+public class WebCP extends android.content.ContentProvider {
 
     private static final String AUTHORITY = "com.example.pareja_ramirez_victor_datos.Ejercicio3.Clases";
     private static final String BASE_PATH = "web";
@@ -40,10 +42,9 @@ public class ContentProvider extends android.content.ContentProvider {
     @Override
     public Cursor query(Uri uri, String[] strings, String s, String[] strings1, String s1) {
         Cursor cursor;
-        switch (uriMatcher.match(uri)) {
+        switch (uriMatcher.match(CONTENT_URI)) {
             case CONTACTS:
-                String[] columns = {"nombre", "link", "email", "categoria", "imagen"};
-                cursor = database.query(BASE_PATH, columns, null, null, null, null, null);
+                cursor = database.query(BASE_PATH, ALL_COLUMNS, null, null, null, null, null);
                 break;
             default:
                 throw new IllegalArgumentException("This is an Unknown URI " + uri);
