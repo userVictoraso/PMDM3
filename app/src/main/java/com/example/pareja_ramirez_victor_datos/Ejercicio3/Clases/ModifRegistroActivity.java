@@ -9,7 +9,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import com.example.pareja_ramirez_victor_datos.databinding.ActivityCrearRegistroBinding;
 import com.example.pareja_ramirez_victor_datos.databinding.ActivityModifRegistroBinding;
 
 public class ModifRegistroActivity extends AppCompatActivity {

@@ -9,8 +9,6 @@ import android.net.Uri;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.example.pareja_ramirez_victor_datos.Ejercicio3.Clases.SQLite;
-
 public class WebCP extends android.content.ContentProvider {
 
     private static final String AUTHORITY = "com.example.pareja_ramirez_victor_datos.Ejercicio3.Clases";

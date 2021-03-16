@@ -10,16 +10,6 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
-
-import com.example.pareja_ramirez_victor_datos.Ejercicio1.MainActivity1;
-import com.example.pareja_ramirez_victor_datos.Ejercicio1.Opciones.AboutActivity;
-import com.example.pareja_ramirez_victor_datos.Ejercicio1.Opciones.ColorActivity;
-import com.example.pareja_ramirez_victor_datos.Ejercicio1.Opciones.ValueActivity;
-import com.example.pareja_ramirez_victor_datos.Ejercicio2.Alarm.Alarm;
-import com.example.pareja_ramirez_victor_datos.Ejercicio2.AlarmActivity.AlarmActivity;
-import com.example.pareja_ramirez_victor_datos.Ejercicio2.AlarmActivity.SettingsActivity;
-import com.example.pareja_ramirez_victor_datos.R;
-import com.example.pareja_ramirez_victor_datos.databinding.ActivityMain2Binding;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -29,6 +19,12 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+
+import com.example.pareja_ramirez_victor_datos.Ejercicio2.Alarm.Alarm;
+import com.example.pareja_ramirez_victor_datos.Ejercicio2.AlarmActivity.AlarmActivity;
+import com.example.pareja_ramirez_victor_datos.Ejercicio2.AlarmActivity.SettingsActivity;
+import com.example.pareja_ramirez_victor_datos.R;
+import com.example.pareja_ramirez_victor_datos.databinding.ActivityMain2Binding;
 
 public class MainActivity2 extends AppCompatActivity {
     final String fileName = "tiempo.txt";

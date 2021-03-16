@@ -1,13 +1,9 @@
 package com.example.pareja_ramirez_victor_datos.Ejercicio1.Opciones;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.View;
-
 import com.example.pareja_ramirez_victor_datos.Ejercicio1.MainActivity1;
-import com.example.pareja_ramirez_victor_datos.MainActivity;
-import com.example.pareja_ramirez_victor_datos.databinding.ActivityColorBinding;
 import com.example.pareja_ramirez_victor_datos.databinding.ActivityValueBinding;
 
 public class ValueActivity extends AppCompatActivity {

@@ -10,7 +10,6 @@ import com.example.pareja_ramirez_victor_datos.Ejercicio1.MainActivity1;
 import com.example.pareja_ramirez_victor_datos.Ejercicio2.MainActivity2;
 import com.example.pareja_ramirez_victor_datos.Ejercicio3.MainActivity3;
 import com.example.pareja_ramirez_victor_datos.Ejercicio4.MainActivity4;
-import com.example.pareja_ramirez_victor_datos.databinding.ActivityMain3Binding;
 import com.example.pareja_ramirez_victor_datos.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {

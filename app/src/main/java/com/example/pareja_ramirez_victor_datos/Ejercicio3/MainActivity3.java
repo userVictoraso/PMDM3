@@ -3,8 +3,7 @@ package com.example.pareja_ramirez_victor_datos.Ejercicio3;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
-
-import android.content.Context;
+import java.util.ArrayList;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
@@ -19,8 +18,6 @@ import com.example.pareja_ramirez_victor_datos.Ejercicio3.Clases.ModifRegistroAc
 import com.example.pareja_ramirez_victor_datos.Ejercicio3.Clases.SQLite;
 import com.example.pareja_ramirez_victor_datos.Ejercicio3.Clases.Web;
 import com.example.pareja_ramirez_victor_datos.databinding.ActivityMain3Binding;
-
-import java.util.ArrayList;
 
 public class MainActivity3 extends AppCompatActivity {
     ArrayList<Web> webArrayList = new ArrayList<>();

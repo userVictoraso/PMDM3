@@ -6,18 +6,13 @@ import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Toast;
-
-import com.example.pareja_ramirez_victor_datos.Ejercicio2.Alarm.Alarm;
-import com.example.pareja_ramirez_victor_datos.Ejercicio2.MainActivity2;
-import com.example.pareja_ramirez_victor_datos.R;
-import com.example.pareja_ramirez_victor_datos.databinding.ActivityAlarmBinding;
-
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
+import com.example.pareja_ramirez_victor_datos.Ejercicio2.Alarm.Alarm;
+import com.example.pareja_ramirez_victor_datos.Ejercicio2.MainActivity2;
+import com.example.pareja_ramirez_victor_datos.databinding.ActivityAlarmBinding;
 
 public class AlarmActivity extends AppCompatActivity {
     ArrayList<Alarm> alarmArrayList;

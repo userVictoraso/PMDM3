@@ -1,25 +1,18 @@
 package com.example.pareja_ramirez_victor_datos.Ejercicio3.Adapter;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
-
+import java.util.ArrayList;
+import java.util.List;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.pareja_ramirez_victor_datos.Ejercicio3.Clases.AsyncTaskLoadImage;
 import com.example.pareja_ramirez_victor_datos.Ejercicio3.Clases.Web;
 import com.example.pareja_ramirez_victor_datos.R;
-
-import java.io.InputStream;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 
 public class MyAdapter extends RecyclerView.Adapter<MyHolder> {
 

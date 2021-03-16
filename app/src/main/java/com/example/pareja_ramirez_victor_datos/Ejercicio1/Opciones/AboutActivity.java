@@ -7,7 +7,6 @@ import android.view.View;
 
 import com.example.pareja_ramirez_victor_datos.Ejercicio1.Perfil.Perfil;
 import com.example.pareja_ramirez_victor_datos.databinding.ActivityAboutBinding;
-import com.example.pareja_ramirez_victor_datos.databinding.ActivityColorBinding;
 
 public class AboutActivity extends AppCompatActivity {
     Perfil myProfile;

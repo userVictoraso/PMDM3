@@ -2,16 +2,11 @@ package com.example.pareja_ramirez_victor_datos.Ejercicio1.Opciones;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Activity;
-import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
-
 import com.example.pareja_ramirez_victor_datos.Ejercicio1.MainActivity1;
 import com.example.pareja_ramirez_victor_datos.databinding.ActivityColorBinding;
-import com.example.pareja_ramirez_victor_datos.databinding.ActivityMain1Binding;
 
 public class ColorActivity extends AppCompatActivity {
 

@@ -12,14 +12,12 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
-import android.view.Window;
 
 import com.example.pareja_ramirez_victor_datos.Ejercicio3.Clases.Web;
 import com.example.pareja_ramirez_victor_datos.Ejercicio4.Adapter.MyAdapter;
 import com.example.pareja_ramirez_victor_datos.databinding.ActivityMain4Binding;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity4 extends AppCompatActivity implements LoaderManager.LoaderCallbacks<Cursor> {
     ActivityMain4Binding binding;

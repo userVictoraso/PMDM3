@@ -4,16 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.CheckBoxPreference;
-import android.preference.EditTextPreference;
 import android.view.View;
 
 import com.example.pareja_ramirez_victor_datos.R;
 import com.example.pareja_ramirez_victor_datos.databinding.ActivitySettingsBinding;
-
-import java.util.Set;
 
 public class SettingsActivity extends AppCompatActivity {
     ActivitySettingsBinding binding;

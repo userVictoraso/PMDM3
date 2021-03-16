@@ -4,15 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
 import android.content.Context;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
-import com.example.pareja_ramirez_victor_datos.Ejercicio3.MainActivity3;
 import com.example.pareja_ramirez_victor_datos.databinding.ActivityCrearRegistroBinding;
-import com.example.pareja_ramirez_victor_datos.databinding.ActivityMain3Binding;
 
 public class CrearRegistroActivity extends AppCompatActivity {
     ActivityCrearRegistroBinding binding;
